@@ -1,6 +1,6 @@
 #GEOMETRY: Parent class; Shape
 # Shape comparison (for sub-classes;rectangle and circle, by size).
-#Translation:.. .movement of the shapes(rectangle and circle from their various center position (0,0))
+#Translation:... ..movement of the shapes(rectangle and circle from their various center position (0,0))
 
 class Shape:
     """Parent class for the geometric shapes
