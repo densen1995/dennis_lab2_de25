@@ -1,0 +1,49 @@
+"""Circle class is a sub class that could inherit some features from parent class shape"""
+"""but adds radius attribute, area and perimeter formulas, is_unit_circle() method and draw()
+method from matplotlib"""
+
+import math
+import matplotlib.pyplot as plt
+
+from shape import Shape
+
+
+class Circle(Shape):
+    def __init__(self, x=0.0, y=1.0, radius=1.0, compare_by="area"):
+        super().__init__(x,y,compare_by)
+        if not isinstance(radius,(int,float)):
+            raise TypeError("radius must be a number.")
+        if radius < 0:
+            raise ValueError("radius must be positive.")
+        
+        self.radius=radius
+
+    @property
+    def radius(self):
+        """radius of the circle(read-only)"""
+        return self._radius
+    
+    @property
+    def area(self):
+        """read only area property"""
+        return math.pi * (self.radius **2)
+    
+    @property
+    def perimeter(self):
+        """read-only perimeter property(circumference)"""
+        return 2 * math.pi * self.radius
+    
+
+    ##added methods##
+    def is_unit_circle(self):
+        """ checks if the circle is a unit circle(when radius=1 and centered at origin )"""
+        return self.radius == 1 and self.x == 0 and self.y == 0
+    
+    def draw(self,colour= "green", show=True):
+        
+    
+
+
+
+
+
