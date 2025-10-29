@@ -40,7 +40,20 @@ class Circle(Shape):
         return self.radius == 1 and self.x == 0 and self.y == 0
     
     def draw(self,colour= "green", show=True):
-        
+        """visualize and draw the circle using matplotlib"""
+        fig, ax = plt.subplots()
+        circle= plt.Circle((self.x, self.y), self.radius, fill=False, colour=colour, linewidth=2)
+        ax.add_patch(circle)
+        ax.set_aspect('equal', adjustable= 'box')
+        ax.set_xlim(self.x - self.radius * 2, self.x + self.radius * 2)
+        ax.set_ylim(self.y - self.radius * 2, self.y + self.radius * 2)
+
+        if show:
+            plt.show()
+        return ax
+
+    def __repr__(self):
+        return f"Circle(x={self.x},y={self.y}, radius={self.radius})"
     
 
 
