@@ -2,8 +2,8 @@
 # Shape comparison (for sub-classes;rectangle and circle, by area or perimeter).
 #Translation:... ...movement of the shapes(rectangle and circle from their various center position (0,0))
 
-import math  #(built in for mathematical functions and calculations.)
-import matplotlib.pyplot as py
+  
+
 
 
 
