@@ -44,6 +44,14 @@ class Shape:
         """comparison , by either area or perimeter"""
         return self._compare_by
     
+    @property
+    def area(self):
+        return self._area
+    
+    @property
+    def perimeter(self):
+        return self._perimeter
+    
 
     def translate(self, dx, dy):
         """move the shape by dx and dy and raises type error if they are not numeric values"""
