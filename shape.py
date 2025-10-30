@@ -6,7 +6,7 @@
 
 
 
-
+import numbers
 class Shape:
     """Parent class for the geometric shapes
     """
@@ -18,11 +18,11 @@ class Shape:
         """initialize a shape with x and y cordinates and raises type error if x and y are not numeric(error check)"""
         """initialize a shape that compares defauultly by area or manually by perimeter"""
 
-        if not isinstance (x,(int,float)) and isinstance(y,(int,float)):
+        if not isinstance (x,(numbers,float)) and isinstance(y,(numbers,float)):
             raise TypeError("x and y must be numeric values.")
         
-        if compare_by not in ("area", "perimeter"):
-            raise ValueError("compare_by must be 'area' or 'perimeter'")
+        #if compare_by not in ("area", "perimeter"):
+            #raise ValueError("compare_by must be 'area' or 'perimeter'")
          
         self._x=x
         self._y=y
@@ -44,6 +44,13 @@ class Shape:
         """comparison , by either area or perimeter"""
         return self._compare_by
     
+    @compare_by.setter
+    def compare_by(self, value):
+        if value not in ("area", "perimeter"):
+            raise ValueError("compare_by must be 'area' or 'perimeter'")
+        self._compare_by = value
+
+    
     @property
     def area(self):
         return self._area
@@ -60,7 +67,7 @@ class Shape:
         self._x+=dx #(movements occurs when a value/number assigned to dy or dx is added to the x and y instances which is set at 0,0)
         self._y+=dy
 
-
+        """comparison method to compare by area or shape"""
     def compare_value(self):
         """return the value used for comparison"""
         return self.area if self.compare=="area" else self.perimeter
@@ -70,27 +77,27 @@ class Shape:
         """check equality based on area or perimeter"""
         if not isinstance(other,Shape):
             return NotImplemented
-        return self._compare_value()== other._compare_value()
+        return self.compare_value()== other.compare_value()
     
     def __lt__(self,other):
         """compare shapes by area or perimeter (less than)"""
         if not isinstance(other,Shape):
             return NotImplemented
-        return self._compare_value() < other._compare_value()
+        return self.compare_value() < other.compare_value()
     
     def __le__(self,other):
         """"compare shapes by area or perimeter(less than or equal )"""
         if not isinstance(other, Shape):
             return NotImplemented
-        return self._compare_value() <= other._compare_value()
+        return self.compare_value() <= other.compare_value()
     
     def __gt__(self,other):
         """compare shapes by area or perimeter(greater than)"""
-        return not self.__le__(other) #self._compare_value()>other._compare_value()(this works against DRY(Do Not Repeat Yourself) principles)
+        return not self.__le__(other) #self.compare_value()>other._compare_value()(this works against DRY(Do Not Repeat Yourself) principles)
     
     def __ge__(self,other):
         """compares shapes by area or perimeter(less than or equal)"""
-        return not self.__lt__(other) #self._value() >= other._value() (but also works against "DRY")
+        return not self.__lt__(other) #self.compare_value() >= other.compare_value() (but also works against "DRY")
     
     def __repr__(self):
         """return developer friendly and readable representaion(makes it more readable)"""
