@@ -13,20 +13,20 @@ class Shape:
 
     """attributes x and y coordinates for the shapes  """
     """attribute compare_by setting for comparison framework"""
-    def __int__(self, x=0 , y=0, compare_by="area"):
+    def __init__(self, x=0 , y=0, compare_by="area"):
 
         """initialize a shape with x and y cordinates and raises type error if x and y are not numeric(error check)"""
         """initialize a shape that compares defauultly by area or manually by perimeter"""
 
-        if not isinstance (x,(numbers,float)) and isinstance(y,(numbers,float)):
+        if not isinstance (x,(numbers.Number)) or not isinstance(y,(numbers.Number)):
             raise TypeError("x and y must be numeric values.")
         
-        #if compare_by not in ("area", "perimeter"):
-            #raise ValueError("compare_by must be 'area' or 'perimeter'")
+        if compare_by not in ("area", "perimeter"):
+            raise ValueError("compare_by must be 'area' or 'perimeter'")
          
         self._x=x
         self._y=y
-        self.compare_by=compare_by
+        self._compare_by=compare_by
 
 
     @property
@@ -62,7 +62,7 @@ class Shape:
 
     def translate(self, dx, dy):
         """move the shape by dx and dy and raises type error if they are not numeric values"""
-        if not isinstance (dx,(int,float)) and isinstance (dy,(int,float)):
+        if not isinstance (dx,(numbers.Number)) and isinstance (dy,(numbers.Number)):
             raise TypeError("dx and dy must be numeric values.")
         self._x+=dx #(movements occurs when a value/number assigned to dy or dx is added to the x and y instances which is set at 0,0)
         self._y+=dy

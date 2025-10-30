@@ -9,12 +9,10 @@ from shape import Shape
 
 
 class Circle(Shape):
-    def __init__(self, x=0.0, y=1.0, radius=1.0, compare_by="area"):
-        super().__init__(x,y,compare_by)
-        if not isinstance(radius,(numbers,float)):
-            raise TypeError("radius must be a number.")
-        if radius < 0:
-            raise ValueError("radius must be positive.")
+    def __init__(self, x=0.0, y=0.0, radius=1.0, compare_by="area"):
+        super().__init__(x, y, compare_by)
+
+    
         
         self.radius=radius
 
@@ -22,6 +20,15 @@ class Circle(Shape):
     def radius(self):
         """radius of the circle(read-only)"""
         return self._radius
+    
+    @radius.setter
+    def radius(self, new_radius):
+            if not isinstance(new_radius,(numbers.Number)):
+                raise TypeError("radius must be a number.")
+            if new_radius < 0:
+                raise ValueError("radius must be positive.")
+            self._radius=(new_radius)
+
     
     @property
     def area(self):
@@ -54,6 +61,10 @@ class Circle(Shape):
 
     def __repr__(self):
         return f"Circle(x={self.x},y={self.y}, radius={self.radius})"
+    
+    def __str__(self):
+        """Return user-friendly string."""
+        return f"Circle centered at ({self.x}, {self.y}) with radius={self.radius}"
     
 
 
