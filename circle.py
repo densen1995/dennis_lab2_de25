@@ -37,7 +37,7 @@ class Circle(Shape):
     
     @property
     def perimeter(self):
-        """read-only perimeter property(circumference)"""
+        """read-only perimeter property(circumference)."""
         return 2 * math.pi * self.radius
     
 
@@ -47,7 +47,7 @@ class Circle(Shape):
         return self.radius == 1 and self.x == 0 and self.y == 0
     
     def draw(self,colour= "green", show=True):
-        """visualize and draw the circle using matplotlib"""
+        """visualize and draw the circle using matplotlib."""
         fig, ax = plt.subplots()
         circle= plt.Circle((self.x, self.y), self.radius, fill=False, colour=colour, linewidth=2)
         ax.add_patch(circle)
