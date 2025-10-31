@@ -54,7 +54,7 @@ class Rectangle(Shape):
         return 2 * self.width * self.height
     
     def is_square(self):
-        """return True if width = height"""
+        """return True if width = height."""
         return self.width == self.height
     
     def draw(self, color='green'):
