@@ -21,8 +21,7 @@ class Shape:
         if not isinstance (x,(numbers.Number)) or not isinstance(y,(numbers.Number)):
             raise TypeError("x and y must be numeric values.")
         
-        if compare_by not in ("area", "perimeter"):
-            raise ValueError("compare_by must be 'area' or 'perimeter'")
+        
          
         self._x=x
         self._y=y
@@ -70,7 +69,7 @@ class Shape:
         """comparison method to compare by area or shape"""
     def compare_value(self):
         """return the value used for comparison"""
-        return self.area if self.compare=="area" else self.perimeter
+        return self.area if self.compare_by=="area" else self.perimeter
 
 
     def __eq__(self, other):

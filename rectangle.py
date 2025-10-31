@@ -43,5 +43,23 @@ class Rectangle(Shape):
             raise ValueError("height must be positive.")
         self._height =(new_height)
 
+    @property
+    def area(self):
+        """read only area property(width * height)"""
+        return self.width * self.height
+    
+    @property
+    def perimeter(self):
+        """read only perimeter property(2 * (width + height))"""
+        return 2 * self.width * self.height
+    
+    def is_square(self):
+        """return True if width = height"""
+        return self.width == self.height
+    
+    def draw(self, color='green'):
+        """draw rectangle centered at (x, y(0,0)) axis."""
+
+
 
 
