@@ -1,6 +1,6 @@
 """Circle class is a sub class that could inherit some features from parent class shape"""
 """but adds radius attribute, area and perimeter formulas, is_unit_circle() method and draw()
-method from matplotlib"""
+method from matplotlib."""
 
 import numbers
 import math
