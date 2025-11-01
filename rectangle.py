@@ -59,17 +59,16 @@ class Rectangle(Shape):
     
     def draw(self, color='green'):
         """draw rectangle with its center at  (x, y(0,0)) axis."""
-
-        fig, ax =plt.subplots()
-        lower_left_x = self.x -self.width/2
-        lower_left_y = self.y -self.height/2
-        rect_patch = plt.Rectangle((lower_left_x, lower_left_y), self.width,self.height, color=color, fill=False, linewidth=2)
-        ax.add_patch(rect_patch)
-        ax.set_aspect('equal', adjustable='box')
-        ax.set_xlim(self.x - self.width,self.x + self.width)
-        ax.set_ylim(self.y - self.height, self.y + self.height)
-        ax.set_title(f"Rectangle at ({self.x}, {self.y}) - with width {self.width} and height {self.height}")
-        plt.grid(True)
+        fig, ax = plt.subplots()
+        lower_left_x = self.x - self.width / 2
+        lower_left_y = self.y - self.width / 2
+        rect = plt.Rectangle((lower_left_x, lower_left_y), self.width, self.height, fill = False, color=color, linewidth=2)
+        ax.add_patch(rect)
+        ax.set_aspect("equal")
+        ax.set_xlim(self.x - self.width * 2, self.x + self.width * 2)
+        ax.set_ylim(self.y - self.width * 2, self.y + self.width * 2)
+        ax.set_title(f"Rectangle centered at ({self.x}, {self.y}) with width  {self.width} and height {self.height}")
+        ax.grid(True)
         plt.show()
 
     def __repr__(self):
