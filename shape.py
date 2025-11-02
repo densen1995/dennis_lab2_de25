@@ -64,7 +64,7 @@ class Shape:
         if not isinstance (dx,(numbers.Number)) and isinstance (dy,(numbers.Number)):
             raise TypeError("dx and dy must be numeric values.")
         self._x+=dx #(movements occurs when a value/number assigned to dy or dx is added to the x and y instances which is set at 0,0)
-        self._y+=dy
+        self._y+=dy   #the value of x  and add to thereself respectively once a movement has been made.  
 
         """comparison method to compare by area or shape"""
     def compare_value(self):
