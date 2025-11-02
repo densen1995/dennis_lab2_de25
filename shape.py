@@ -12,20 +12,22 @@ class Shape:
     """
 
     """attributes x and y coordinates for the shapes  """
+    """attributes z( optional height cordinates used by 3D shapes.)"""
     """attribute compare_by setting for comparison framework"""
-    def __init__(self, x=0 , y=0, compare_by="area"):
+    def __init__(self, x=0 , y=0, z=None, compare_by="area"):
 
-        """initialize a shape with x and y cordinates and raises type error if x and y are not numeric(error check)"""
+        """initialize a shape with x and y cordinates and raises type error if x ,y and z are not numeric(error check)"""
         """initialize a shape that compares defauultly by area or manually by perimeter"""
 
-        if not isinstance (x,(numbers.Number)) or not isinstance(y,(numbers.Number)):
-            raise TypeError("x and y must be numeric values.")
+        if not isinstance (x,(numbers.Number)) or not isinstance(y,(numbers.Number)) or not isinstance(z,(numbers.Number)):
+            raise TypeError("x ,y and z must be numeric values.")
         
         
          
         self._x=x
         self._y=y
-        self._compare_by=compare_by
+        self._z=z
+        self._compare_by= compare_by
 
 
     @property
@@ -37,6 +39,9 @@ class Shape:
     def y(self):
         """returns the y coordinate of the shape"""
         return self._y
+    @property
+    def z(self):
+        """returns the z coordinate of the shape"""
     
     @property
     def compare_by(self):
@@ -59,13 +64,14 @@ class Shape:
         return self._perimeter
     
 
-    def translate(self, dx, dy):
-        """move the shape by dx and dy and raises type error if they are not numeric values"""
-        if not isinstance (dx,(numbers.Number)) and isinstance (dy,(numbers.Number)):
+    def translate(self, dx, dy, dz):
+        """move the shape by dx ,dy and dz(if 3D) raises type error if they are not numeric values"""
+        if not isinstance (dx,(numbers.Number)) and isinstance (dy,(numbers.Number)) and isinstance(dz,(numbers.Number)):
             raise TypeError("dx and dy must be numeric values.")
         self._x+=dx #(movements occurs when a value/number assigned to dy or dx is added to the x and y instances which is set at 0,0)
         self._y+=dy   #the value of x  and add to thereself respectively once a movement has been made.  
-
+        if self._z is not None:
+            self._z+=dz
         """comparison method to compare by area or shape"""
     def compare_value(self):
         """return the value used for comparison"""
@@ -100,10 +106,10 @@ class Shape:
     
     def __repr__(self):
         """return developer friendly and readable representaion(makes it more readable)"""
-        return f"Shape(x={self.x}, y={self.y}, compare_by={self.compare_by})"
+        return f"Shape(x={self.x}, y={self.y}, z={self.z}, compare_by={self.compare_by})"
     def __str__(self):
         """return user friendly and readable representation """
-        return f"Shape centered and positioned at ({self.x}, {self.y})"
+        return f"Shape centered and positioned at ({self.x}, {self.y}, {self.z})"
     
         
     
