@@ -21,6 +21,7 @@ class Shape:
 
         if not isinstance(x, (numbers.Number)) or not isinstance(y, (numbers.Number)):
             raise TypeError("x and y must be numeric values.")
+        
         if not isinstance(z, (numbers.Number)):
             raise TypeError("z must be numeric values.")
         
@@ -47,7 +48,7 @@ class Shape:
     
     @property
     def compare_by(self):
-        """comparison , by either area or perimeter"""
+        """comparison , by either area or perimeter."""
         return self._compare_by
     
     @compare_by.setter
@@ -69,7 +70,8 @@ class Shape:
     def translate(self, dx, dy, dz):
         """move the shape by dx ,dy and dz(if 3D) raises type error if they are not numeric values"""
         if not isinstance (dx,(numbers.Number)) and isinstance (dy,(numbers.Number)) and isinstance(dz,(numbers.Number)):
-            raise TypeError("dx and dy must be numeric values.")
+            raise TypeError("dx, dy and dz must be numeric values.")
+        
         self._x+=dx #(movements occurs when a value/number assigned to dy or dx is added to the x and y instances which is set at 0,0)
         self._y+=dy   #the value of x  and add to thereself respectively once a movement has been made.  
         if self._z is not None:
@@ -112,22 +114,5 @@ class Shape:
     def __str__(self):
         """return user friendly and readable representation """
         return f"Shape centered and positioned at ({self.x}, {self.y}, {self.z})"
-    
-        
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    def __repr__(self):
-        return f"Shape(x={self.x}, y={self.y})"
     
 
