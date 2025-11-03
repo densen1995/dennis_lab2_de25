@@ -14,14 +14,15 @@ class Shape:
     """attributes x and y coordinates for the shapes  """
     """attributes z( optional height cordinates used by 3D shapes.)"""
     """attribute compare_by setting for comparison framework"""
-    def __init__(self, x=0 , y=0, z=None, compare_by="area"):
+    def __init__(self, x=0 , y=0, z=0, compare_by="area"):
 
         """initialize a shape with x and y cordinates and raises type error if x ,y and z are not numeric(error check)"""
         """initialize a shape that compares defauultly by area or manually by perimeter"""
 
-        if not isinstance (x,(numbers.Number)) or not isinstance(y,(numbers.Number)) or not isinstance(z,(numbers.Number)):
-            raise TypeError("x ,y and z must be numeric values.")
-        
+        if not isinstance(x, (numbers.Number)) or not isinstance(y, (numbers.Number)):
+            raise TypeError("x and y must be numeric values.")
+        if not isinstance(z, (numbers.Number)):
+            raise TypeError("z must be numeric values.")
         
          
         self._x=x
@@ -41,6 +42,7 @@ class Shape:
         return self._y
     @property
     def z(self):
+        return self._z
         """returns the z coordinate of the shape"""
     
     @property

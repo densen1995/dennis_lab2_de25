@@ -11,8 +11,8 @@ from shape import Shape
 
 
 class Circle(Shape):
-    def __init__(self, x=0.0, y=0.0, radius=1.0, compare_by="area"):
-        super().__init__(x, y, compare_by)
+    def __init__(self, x=0.0, y=0.0, z=0,radius=1.0, compare_by="area"):
+        super().__init__(x, y, z, compare_by)
 
     
         
