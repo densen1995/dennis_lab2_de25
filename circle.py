@@ -16,11 +16,11 @@ class Circle(Shape):
 
     
         
-        self.radius=radius
+        self._radius=radius
 
     @property
     def radius(self):
-        """radius of the circle(read-only)"""
+        """radius of the circle"""
         return self._radius
     
     @radius.setter
