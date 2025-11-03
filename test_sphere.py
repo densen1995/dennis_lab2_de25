@@ -12,7 +12,7 @@ def test_string_in_init_fails():
 """decorator function that allows me run both value and type error"""
 @pytest.mark.parametrize("radius, expected_exception", [
     (-2, ValueError),  
-    ("big", TypeError), 
+    ("Dennis", TypeError), 
 ])
 
 def test_sphere_invalid_inputs(radius, expected_exception):
