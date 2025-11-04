@@ -17,12 +17,12 @@ def test_negative_value_in_init_fails():
         Sphere(radius = -2)
 
 
-def test_valid_sphere_area_and_volume():
+def test_valid_sphere_area_volume_and_circumference():
     """Test surface area and volume of a sphere."""
     sphere = Sphere(radius=1)
     assert round(sphere.area, 2) == round(4 * math.pi * 1**2, 2)
     assert round(sphere.volume, 2) == round((4/3) * math.pi * 1**3, 2)
-
+    assert round(sphere.circumference, 2) == round (2 * math.pi ,2)
 
 def test_sphere_translation():
     """Test moving the sphere in 3D space."""

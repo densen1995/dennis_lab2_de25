@@ -17,14 +17,15 @@ def test_negative_value_in_init_fails():
         Cube(side= -2)
 
 
-def test_valid_cube_area_and_volume():
+def test_valid_cube_area_volume_and_perimeter():
     """Test the cube's surface area and volume calculations."""
     cube = Cube(side=2)
     assert cube.area == 24  
-    assert cube.volume == 8   
+    assert cube.volume == 8 
+    assert cube.perimeter ==  24 
 
 def test_cube_translation():
-    """test trasnlating the cube in 3D"""
+    """test trasnlating the cube in 3D."""
     cube=Cube(side=3)
     cube.translate(1,2,3)
     assert (cube._x, cube._y, cube._z) == (1,2,3)

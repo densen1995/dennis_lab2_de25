@@ -42,12 +42,9 @@ class Sphere (Shape):
         return 4 * math.pi * (self._radius ** 2)
     
     @property
-    def perimeter(self):
+    def circumference(self):
         return 2 * math.pi * self._radius
-    
-    @property
-    def perimeter(self):
-        return 2 * math.pi * self._radius #could also be circumference
+
     
     @property
     def volume(self):
