@@ -19,7 +19,7 @@ class Sphere (Shape):
             raise ValueError("radius must be positive")
         
         
-        self._radius = radius
+        self.radius = radius
 
     @property
     def radius(self):

@@ -16,7 +16,7 @@ class Circle(Shape):
 
     
         
-        self._radius=radius
+        self.radius=radius
 
     @property
     def radius(self):
