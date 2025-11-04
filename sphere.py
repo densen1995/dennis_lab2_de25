@@ -25,6 +25,16 @@ class Sphere (Shape):
     def radius(self):
         return self._radius
     
+    """validate radius"""
+    @radius.setter
+    def radius(self, value):
+        if not isinstance(value, (numbers.Number)):
+            raise TypeError("radius must be numeric")
+        if value <= 0:
+            raise ValueError("radius must be positive")
+        self._radius=value
+        
+    
 
     @property
     def area(self):

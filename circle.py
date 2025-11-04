@@ -43,9 +43,9 @@ class Circle(Shape):
         return 2 * math.pi * self.radius
     
 
-    ##added methods##
+    
     def is_unit_circle(self):
-        """ checks if the circle is a unit circle(when radius=1 and centered at origin )"""
+        """ checks if the circle is a unit circle(when radius=1 and centered at origin (0,0))"""
         return self._radius == 1 and self.x == 0 and self.y == 0
     
     def draw(self,color = 'blue'):
