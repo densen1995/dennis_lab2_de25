@@ -74,7 +74,7 @@ def test_cube_vs_sphere_comparisons():
     cube.compare_by = "volume"
     sphere.compare_by = "volume"
 
-    """Cube volume = 8, Sphere volume = (4/3)π(2**3) ≈ 33.51"""
+    """Cube volume = 8, Sphere volume = 33.51"""
     assert cube < sphere
     assert sphere > cube
 

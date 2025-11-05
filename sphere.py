@@ -1,10 +1,9 @@
 """Sphere class is a sub class that could inherit some features from parent class shape"""
-"""but adds radius attribute, area ,perimeter and volume formulas, is_unit_sphere() method and draw()
-method from matplotlib."""
+"""but adds radius and z(for3D shapes)attribute, area ,circumference and volume formulas, is_unit_sphere() method ."""
 import numbers
 from numbers import Number
 import math
-import matplotlib.pyplot as plt
+
 from shape import Shape
 
 

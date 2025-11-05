@@ -1,10 +1,8 @@
 """Cube class is a sub class that could inherit some features from parent class shape"""
-"""but adds side attribute, area ,perimeter and volume formulas, is_unit_cube() method and draw()
-method from matplotlib."""
+"""but adds side and z(for 3D shapes)attribute, area ,perimeter and volume formulas, is_unit_cube() method ."""
 import numbers
 from numbers import Number
-import math
-import matplotlib.pyplot as plt
+
 from shape import Shape
 
 class Cube(Shape):
