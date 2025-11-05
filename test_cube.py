@@ -56,5 +56,11 @@ def test_cube_equality():
     c2 = Cube(side=3)
     assert c1 == c2
 
+def test_cube_repr_output():
+    """ensure Cube.__repr__() returns a readable string """
+    cube = Cube(x=1, y=2, z=3, side=4)
+    output=repr(cube)
+    assert "Cube" in output
+    assert "side = 4"
 
 

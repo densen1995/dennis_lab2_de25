@@ -63,6 +63,9 @@ class Cube(Shape):
 
         print(f"Moved shape by (x+={dx}, y+={dy}, z+={dz})")
         print(f"New position: ({self._x}, {self._y}, {self._z})")
+
+    def compare_value(self):
+        return self.area if self.compare_by == "area" else self.volume
     
     def is_unit_cube(self)->bool:
         return self._side == 1

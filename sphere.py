@@ -76,6 +76,9 @@ class Sphere (Shape):
 
         print(f"Moved shape by (x+={dx}, y+={dy}, z+={dz})")
         print(f"New position: ({self._x}, {self._y}, {self._z})")
+
+    def compare_value(self):
+        return self.area if self.compare_by == "area" else self.volume
     
     def is_unit_sphere(self)->bool:
         return self._radius == 1

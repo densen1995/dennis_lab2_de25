@@ -5,6 +5,7 @@ from pytest import raises
 import math
 
 from sphere import Sphere
+from cube import Cube
 
 def test_valid_init():
     s1= Sphere(radius= 2)
@@ -57,6 +58,33 @@ def test_sphere_equality():
     s2 = Sphere(radius=4)
     assert s1 == s2
 
+def test_cube_vs_sphere_comparisons():
+    
+    """Test comparing a Cube and a Sphere based on their  area ."""
+
+    cube = Cube(side=2)       # Surface area = 24
+    sphere = Sphere(radius=2) # Surface area = 50.27
+
+    """Since 24 < 50.27, cube should be considered smaller"""
+    assert cube < sphere
+    assert sphere > cube
+    assert not cube == sphere
+
+    """Change comparison mode to volume and compare again"""
+    cube.compare_by = "volume"
+    sphere.compare_by = "volume"
+
+    """Cube volume = 8, Sphere volume = (4/3)π(2**3) ≈ 33.51"""
+    assert cube < sphere
+    assert sphere > cube
+
+
+def test_sphere_repr_output():
+    """ensure Sphere.__repr__() returns a readable string """
+    sphere = Sphere(x=1, y=2, z=3, radius=3)
+    output=repr(sphere)
+    assert "Sphere" in output
+    assert "radius = 3"
 
 
 

@@ -48,7 +48,7 @@ class Circle(Shape):
     
     def is_unit_circle(self)-> bool:
         """ checks if the circle is a unit circle(when radius=1 and centered at origin (0,0))"""
-        return self._radius == 1 and self.x == 0 and self.y == 0
+        return self.radius == 1 
     
     def draw(self,color = 'blue'):
         """visualize and draw the circle using matplotlib."""
