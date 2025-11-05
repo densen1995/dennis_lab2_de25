@@ -3,6 +3,8 @@
 method from matplotlib."""
 
 import numbers
+from numbers import Number
+
 import math
 import matplotlib.pyplot as plt
 
@@ -11,7 +13,7 @@ from shape import Shape
 
 
 class Circle(Shape):
-    def __init__(self, x=0.0, y=0.0,radius=1.0, compare_by="area"):
+    def __init__(self, x:Number=0.0, y:Number=0.0,radius:Number=1.0, compare_by:str="area"):
         super().__init__(x, y, compare_by)
 
     
@@ -19,12 +21,12 @@ class Circle(Shape):
         self.radius=radius
 
     @property
-    def radius(self):
+    def radius(self)-> Number:
         """radius of the circle"""
         return self._radius
     
     @radius.setter
-    def radius(self, new_radius):
+    def radius(self, new_radius)-> Number:
             if not isinstance(new_radius,(numbers.Number)):
                 raise TypeError("radius must be a number.")
             if new_radius < 0:
@@ -33,18 +35,18 @@ class Circle(Shape):
 
     
     @property
-    def area(self):
+    def area(self)-> Number:
         """read only area property"""
         return math.pi * (self.radius **2)
     
     @property
-    def perimeter(self):
+    def perimeter(self)-> Number:
         """read-only perimeter property(circumference)."""
         return 2 * math.pi * self.radius
     
 
     
-    def is_unit_circle(self):
+    def is_unit_circle(self)-> bool:
         """ checks if the circle is a unit circle(when radius=1 and centered at origin (0,0))"""
         return self._radius == 1 and self.x == 0 and self.y == 0
     

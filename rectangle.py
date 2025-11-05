@@ -4,13 +4,14 @@ method from matplotlib"""
 
 
 import numbers
+from numbers import Number
 
 import matplotlib.pyplot as plt
 
 from shape import Shape
 
 class Rectangle(Shape):
-    def __init__(self, x=0.0, y=0.0, width=1.0, height=1.0, compare_by="area"):
+    def __init__(self, x:Number=0.0, y:Number=0.0, width:Number=1.0, height:Number=1.0, compare_by:str="area"):
         super().__init__(x, y, compare_by)
         
         self.width = width
@@ -18,12 +19,12 @@ class Rectangle(Shape):
 
 
     @property
-    def width(self):
+    def width(self)->Number:
         """Width of rectangle (float)."""
         return self._width
 
     @width.setter
-    def width(self, new_width):
+    def width(self, new_width)->Number:
         if not isinstance(new_width, (numbers.Number)):
             raise TypeError("width must be a number")
         if new_width <= 0:
@@ -31,12 +32,12 @@ class Rectangle(Shape):
         self._width = (new_width)
 
     @property
-    def height(self):
+    def height(self)->Number:
         """Height of rectangle (float)."""
         return self._height
 
     @height.setter
-    def height(self, new_height):
+    def height(self, new_height)->Number:
         if not isinstance(new_height, (numbers.Number)):
             raise TypeError("height must be a number.")
         if new_height <= 0:
@@ -44,16 +45,16 @@ class Rectangle(Shape):
         self._height =(new_height)
 
     @property
-    def area(self):
+    def area(self)->Number:
         """read only area property(width * height)"""
         return self.width * self.height
     
     @property
-    def perimeter(self):
+    def perimeter(self)->Number:
         """read only perimeter property(2 * (width + height))"""
         return 2 * self.width * self.height
     
-    def is_square(self):
+    def is_square(self)->bool:
         """return True if width = height."""
         return self.width == self.height
     

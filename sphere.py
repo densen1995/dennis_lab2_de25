@@ -2,6 +2,7 @@
 """but adds radius attribute, area ,perimeter and volume formulas, is_unit_sphere() method and draw()
 method from matplotlib."""
 import numbers
+from numbers import Number
 import math
 import matplotlib.pyplot as plt
 from shape import Shape
@@ -9,7 +10,7 @@ from shape import Shape
 
 class Sphere (Shape):
     """a 3D sphere shape """
-    def __init__(self, x=0, y=0, z=0, radius=1, compare_by= "area"):
+    def __init__(self, x:Number=0, y:Number=0, z:Number=0, radius:Number=1, compare_by:str= "area"):
         super().__init__(x,y, compare_by)
 
         """validate radius<"""
@@ -22,17 +23,17 @@ class Sphere (Shape):
         self.radius = radius
         self._z = z
     @property
-    def z(self):
+    def z(self)->Number:
         return self._z
     
 
     @property
-    def radius(self):
+    def radius(self)->Number:
         return self._radius
     
     """validate radius"""
     @radius.setter
-    def radius(self, value):
+    def radius(self, value)->Number:
         if not isinstance(value, (numbers.Number)):
             raise TypeError("radius must be numeric")
         if value <= 0:
@@ -42,23 +43,23 @@ class Sphere (Shape):
     
 
     @property
-    def area(self):
+    def area(self)->Number:
         """read-only """
         return 4 * math.pi * (self._radius ** 2)
     
     @property
-    def circumference(self):
+    def circumference(self)->Number:
         return 2 * math.pi * self._radius
 
     
     @property
-    def volume(self):
+    def volume(self)->Number:
         return (4/3) * math.pi * (self._radius ** 3)
     
 
     
 
-    def translate(self, dx, dy, dz):
+    def translate(self, dx, dy, dz)->None:
         print(f" move the cordinates by (x+= {dx}), x+={dy} , x+={dz}")
 
 
@@ -76,7 +77,7 @@ class Sphere (Shape):
         print(f"Moved shape by (x+={dx}, y+={dy}, z+={dz})")
         print(f"New position: ({self._x}, {self._y}, {self._z})")
     
-    def is_unit_sphere(self):
+    def is_unit_sphere(self)->bool:
         return self._radius == 1
     
     

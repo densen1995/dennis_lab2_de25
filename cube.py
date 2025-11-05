@@ -2,6 +2,7 @@
 """but adds side attribute, area ,perimeter and volume formulas, is_unit_cube() method and draw()
 method from matplotlib."""
 import numbers
+from numbers import Number
 import math
 import matplotlib.pyplot as plt
 from shape import Shape
@@ -9,7 +10,7 @@ from shape import Shape
 class Cube(Shape):
     """3D cube shape"""
 
-    def __init__(self, x:numbers=0, y=0, z=0, side=1, compare_by="area"):
+    def __init__(self, x:Number=0, y:Number=0, z:Number=0, side:Number=1, compare_by:Number="area"):
         super().__init__(x, y, compare_by)
 
         self.side=side
@@ -17,16 +18,16 @@ class Cube(Shape):
 
        
     @property
-    def z(self):
+    def z(self)->Number:
         return self._z
 
     @property
-    def side(self):
+    def side(self)->Number:
         return self._side
     
     """validate side"""
     @side.setter
-    def side(self,value):
+    def side(self,value)->Number:
         if not isinstance(value, (numbers.Number)):
             raise TypeError("side must be a numeric value")
         if value <=0:
@@ -34,18 +35,18 @@ class Cube(Shape):
         self._side = value
 
     @property
-    def area(self):
+    def area(self)->Number:
         return 6 * (self._side ** 2 )
     
     @property
-    def perimeter(self):
+    def perimeter(self)->Number:
         return 12 * self._side 
     
     @property
-    def volume(self):
+    def volume(self)->Number:
         return self._side ** 3
     
-    def translate(self, dx, dy, dz):
+    def translate(self, dx, dy, dz)->None:
         print(f" move the cordinates by (x+= {dx}), x+={dy} , x+={dz}")
 
 
@@ -63,7 +64,7 @@ class Cube(Shape):
         print(f"Moved shape by (x+={dx}, y+={dy}, z+={dz})")
         print(f"New position: ({self._x}, {self._y}, {self._z})")
     
-    def is_unit_cube(self):
+    def is_unit_cube(self)->bool:
         return self._side == 1
     
 
