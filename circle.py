@@ -11,8 +11,8 @@ from shape import Shape
 
 
 class Circle(Shape):
-    def __init__(self, x=0.0, y=0.0, z=0,radius=1.0, compare_by="area"):
-        super().__init__(x, y, z, compare_by)
+    def __init__(self, x=0.0, y=0.0,radius=1.0, compare_by="area"):
+        super().__init__(x, y, compare_by)
 
     
         
@@ -57,7 +57,7 @@ class Circle(Shape):
         ax.set_xlim(self.x - self.radius * 2, self.x + self.radius * 2)
         ax.set_ylim(self.y - self.radius * 2, self.y + self.radius * 2)
         ax.set_title(f"Circle at ({self.x}, {self.y} with radius{self.radius}")
-        plt.grid(True)                                                                                                                                 (True)
+        plt.grid                                                                                                                                (True)
         plt.show()
 
         

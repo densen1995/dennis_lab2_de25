@@ -9,13 +9,16 @@ from shape import Shape
 class Cube(Shape):
     """3D cube shape"""
 
-    def __init__(self, x=0, y=0, z=0, side=1, compare_by="area"):
-        super().__init__(x, y, z, compare_by)
+    def __init__(self, x:numbers=0, y=0, z=0, side=1, compare_by="area"):
+        super().__init__(x, y, compare_by)
 
         self.side=side
+        self._z=z
 
        
-
+    @property
+    def z(self):
+        return self._z
 
     @property
     def side(self):
@@ -41,6 +44,24 @@ class Cube(Shape):
     @property
     def volume(self):
         return self._side ** 3
+    
+    def translate(self, dx, dy, dz):
+        print(f" move the cordinates by (x+= {dx}), x+={dy} , x+={dz}")
+
+
+        # Validate inputs
+        for val, name in zip((dx, dy, dz), ("dx", "dy", "dz")):
+            if not isinstance(val, (int, float)):
+                raise TypeError(f"{name} must be a number.")
+
+        # Move the x and y coordinates using the parent method (Shape handles 2D)
+        super().translate(dx, dy)
+
+    # Move z coordinate separately (added in 3D shapes)
+        self._z += dz
+
+        print(f"Moved shape by (x+={dx}, y+={dy}, z+={dz})")
+        print(f"New position: ({self._x}, {self._y}, {self._z})")
     
     def is_unit_cube(self):
         return self._side == 1

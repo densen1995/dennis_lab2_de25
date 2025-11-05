@@ -10,7 +10,7 @@ from shape import Shape
 class Sphere (Shape):
     """a 3D sphere shape """
     def __init__(self, x=0, y=0, z=0, radius=1, compare_by= "area"):
-        super().__init__(x,y,z, compare_by)
+        super().__init__(x,y, compare_by)
 
         """validate radius<"""
         if not isinstance(radius, (numbers.Number)):
@@ -20,6 +20,11 @@ class Sphere (Shape):
         
         
         self.radius = radius
+        self._z = z
+    @property
+    def z(self):
+        return self._z
+    
 
     @property
     def radius(self):
@@ -49,6 +54,27 @@ class Sphere (Shape):
     @property
     def volume(self):
         return (4/3) * math.pi * (self._radius ** 3)
+    
+
+    
+
+    def translate(self, dx, dy, dz):
+        print(f" move the cordinates by (x+= {dx}), x+={dy} , x+={dz}")
+
+
+        # Validate inputs
+        for val, name in zip((dx, dy, dz), ("dx", "dy", "dz")):
+            if not isinstance(val, (int, float)):
+                raise TypeError(f"{name} must be a number.")
+
+        # Move the x and y coordinates using the parent method (Shape handles 2D)
+        super().translate(dx, dy)
+
+    # Move z coordinate separately (added in 3D shapes)
+        self._z += dz
+
+        print(f"Moved shape by (x+={dx}, y+={dy}, z+={dz})")
+        print(f"New position: ({self._x}, {self._y}, {self._z})")
     
     def is_unit_sphere(self):
         return self._radius == 1
