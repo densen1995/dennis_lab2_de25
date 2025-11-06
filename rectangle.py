@@ -69,7 +69,7 @@ class Rectangle(Shape):
         ax.set_xlim(self.x - self.width * 2, self.x + self.width * 2)
         ax.set_ylim(self.y - self.width * 2, self.y + self.width * 2)
         ax.set_title(f"Rectangle centered at ({self.x}, {self.y}) with width  {self.width} and height {self.height}")
-        ax.grid(True)
+        ax.grid()
         plt.show()
 
     def __repr__(self):

@@ -59,7 +59,7 @@ class Circle(Shape):
         ax.set_xlim(self.x - self.radius * 2, self.x + self.radius * 2)
         ax.set_ylim(self.y - self.radius * 2, self.y + self.radius * 2)
         ax.set_title(f"Circle at ({self.x}, {self.y} with radius{self.radius}")
-        plt.grid                                                                                                                                (True)
+        ax.grid                                                                                                                                (True)
         plt.show()
 
         
