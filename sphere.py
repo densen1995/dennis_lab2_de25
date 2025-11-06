@@ -59,7 +59,7 @@ class Sphere (Shape):
 
         # Validate inputs
         for val, name in zip((dx, dy, dz), ("dx", "dy", "dz")):
-            if not isinstance(val, (int, float)):
+            if not isinstance(val, (numbers.Number)):
                 raise TypeError(f"{name} must be a number.")
 
         # Move the x and y coordinates using the parent method (Shape handles 2D)
