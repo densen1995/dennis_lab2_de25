@@ -19,7 +19,7 @@ class Shape:
     def __init__(self, x:Number=0 , y:Number=0, compare_by:str="area" ):
 
         """initialize a shape with x and y cordinates and raises type error if x ,y and z are not numeric(error check)"""
-        """initialize a shape that compares defauultly by area or manually by perimeter"""
+        """initialize a shape that compares defaultly by area or manually by perimeter or volume"""
 
         if not isinstance(x, (numbers.Number)) or not isinstance(y, (numbers.Number)):
             raise TypeError("x and y must be numeric values.")
@@ -69,7 +69,7 @@ class Shape:
     
 
     def translate(self, dx, dy) -> None:
-        """move the shape by dx ,dy and dz(if 3D) raises type error if they are not numeric values"""
+        """move the shape by dx ,dy raises type error if they are not numeric values"""
         if not isinstance (dx,(numbers.Number)) and isinstance (dy,(numbers.Number)) :
             raise TypeError("dx, and dy  must be numeric values.")
         
