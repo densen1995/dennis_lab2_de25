@@ -12,12 +12,7 @@ class Sphere (Shape):
     def __init__(self, x:Number=0, y:Number=0, z:Number=0, radius:Number=1, compare_by:str= "area"):
         super().__init__(x,y, compare_by)
 
-        """validate radius<"""
-        if not isinstance(radius, (numbers.Number)):
-            raise TypeError("radius must be numeric")
-        if radius <= 0:
-            raise ValueError("radius must be positive")
-        
+       
         
         self.radius = radius
         self._z = z

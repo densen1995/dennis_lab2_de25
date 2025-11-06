@@ -62,8 +62,8 @@ def test_cube_vs_sphere_comparisons():
     
     """Test comparing a Cube and a Sphere based on their  area ."""
 
-    cube = Cube(side=2)       # Surface area = 24
-    sphere = Sphere(radius=2) # Surface area = 50.27
+    cube = Cube(side=2)       #  area = 24
+    sphere = Sphere(radius=2) #  area = 50.27
 
     """Since 24 < 50.27, cube should be considered smaller"""
     assert cube < sphere
@@ -80,7 +80,7 @@ def test_cube_vs_sphere_comparisons():
 
 
 def test_sphere_repr_output():
-    """ensure Sphere.__repr__() returns a readable string """
+    """ensure Sphere.__repr__() returns a readable string. """
     sphere = Sphere(x=1, y=2, z=3, radius=3)
     output=repr(sphere)
     assert "Sphere" in output
