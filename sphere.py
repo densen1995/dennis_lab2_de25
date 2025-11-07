@@ -52,7 +52,7 @@ class Sphere (Shape):
     
 
     
-     """translation for 3D shape overrides the one in the parent class"""
+    """translation for 3D shape overrides the one in the parent class"""
     def translate(self, dx, dy, dz)->None:
         print(f" move the cordinates by (x+= {dx}), x+={dy} , x+={dz}")
 
