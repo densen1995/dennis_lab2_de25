@@ -44,19 +44,20 @@ class Cube(Shape):
     def volume(self)->Number:
         return self._side ** 3
     
+    """translation for 3D shape overrides the one in the parent class"""
     def translate(self, dx, dy, dz)->None:
         print(f" move the cordinates by (x+= {dx}), x+={dy} , x+={dz}")
 
 
-        # Validate inputs
+        """Validate inputs"""
         for val, name in zip((dx, dy, dz), ("dx", "dy", "dz")):
             if not isinstance(val, (numbers.Number)):
                 raise TypeError(f"{name} must be a number.")
 
-        # Move the x and y coordinates using the parent method (Shape handles 2D)
+        """ Move the x and y coordinates using the parent method (Shape handles 2D)"""
         super().translate(dx, dy)
 
-    # Move z coordinate separately (added in 3D shapes)
+        """Move z coordinate separately (added in 3D shapes)"""
         self._z += dz
 
         print(f"Moved shape by (x+={dx}, y+={dy}, z+={dz})")
